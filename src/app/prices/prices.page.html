@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{productName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="productListings && productListings.length > 0">
+    <ion-item *ngFor="let product of productListings">
+      <div class="metadata-end-wrapper" slot="start">
+        <ion-label>{{product.companyName}}</ion-label>
+        <ion-note color="medium" class="ion-text-wrap">{{product.companySign}} </ion-note>
+      </div>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-label>{{product.price}}$</ion-label>
+        <ion-note color="medium" class="ion-text-wrap">{{product.date | date:"shortDate"}}</ion-note>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="productListings && productListings.length === 0">No products found</div>
+</ion-content>
