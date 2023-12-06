@@ -10,8 +10,8 @@ export class ScannerService {
 
   async scanBarcode(options?: any): Promise<any>  {
     return new Promise((resolve, reject)=> {
-      options = options || {prompt: "Placez le code barre dans le cadre",
-        promptCancel: "Annuler",
+      options = options || {prompt: "Please scan your barcode",
+        promptCancel: "Cancel",
         frameScan: true,
         torchOn: false,
         showTorchButton: true};
