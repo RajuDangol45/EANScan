@@ -2,23 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-
-// separate to interface files
-interface Product {
-  name: string;
-  price: number;
-  date: string;
-  companySign: string;
-  companyName: string;
-}
-
-export interface ProductApiResponse {
-  Name: string;
-  Price: number;
-  Date: string;
-  company_sign: string;
-  company_name: string;
-}
+import { Product, ProductApiResponse } from '../interfaces/price.interface';
 
 @Component({
   selector: 'app-prices',
@@ -50,7 +34,7 @@ export class PricesPage implements OnInit {
   }
 }
 
-// separate to map files
+// separate to interceptor/map files
 const mapProductParams = (apiResponse: ProductApiResponse): Product => {
   return {
     name: apiResponse.Name,
